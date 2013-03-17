@@ -1,55 +1,79 @@
 ---
 layout : default
 ---
-<div class="page-header">
-  <h1>{{ page.title }} {{# page.tagline }} <small>{{ . }}</small>{{/ page.tagline }}</h1>
-</div>
+<div class="page-intro clearfix">
+    <h1 class="page-title alignleft">{{ page.title }} {{# page.tagline }}
+        <small>{{ . }}</small>
+        {{/ page.tagline }}
+    </h1>
+    <div class="navigation alignright">
+        {{# page?previous }}
+        <a href="{{ url }}" title="{{ title }}"><i class='icon-left-open-1'></i></a>
+        {{/ page?previous }}
+        {{^ page?previous }}
+        {{/ page?previous }}
 
-<div class="row">
-  <div class="span8">
-    {{{ content }}}
-    <hr>
-    <div class="pagination">
-      <ul>
-        <ul>
-          {{# page?previous }}
-            <li class="prev"><a href="{{ url }}" title="{{ title }}">&larr; Previous</a></li>
-          {{/ page?previous }}
-          {{^ page?previous }}
-            <li class="prev disabled"><a>&larr; Previous</a></li>
-          {{/ page?previous }}
-
-            <li><a href="/archive">Archive</a></li>
-
-          {{# page?next }}
-            <li class="next"><a href="{{ url }}" title="{{ title }}">Next &rarr;</a></li>
-          {{/ page?next }}
-          {{^ page?next }}
-            <li class="next disabled"><a>Next &rarr;</a>
-          {{/ page?next }}
-        </ul>
-      </ul>
+        {{# page?next }}
+        <a href="{{ url }}" title="{{ title }}"><i class='icon-right-open-1'></i></a>
+        {{/ page?next }}
+        {{^ page?next }}
+        {{/ page?next }}
     </div>
-    <hr>
-    {{{ comments }}}
-  </div>
-  
-  <div class="span4">
-    <h4>Published</h4>
-    <div class="date"><span>{{ page.date }}</span></div>
-    <br>
-    <h4>Categories</h4>
-    <ul class="tag_box">
-    {{# page.categories?to_categories }}
-      {{> categories_list }}
-    {{/ page.categories?to_categories }}
-    </ul>
-    <br>
-    <h4>Tags</h4>
-    <ul class="tag_box">
-    {{# page.tags?to_tags }}
-      {{> tags_list }}
-    {{/ page.tags?to_tags }}
-    </ul>
-  </div>
 </div>
+
+<section class="content full">
+    <div class="post">
+        <div class="post-content">
+            {{{ content }}}
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="comments">
+        {{{ comments }}}
+    </div>
+</section>
+
+<!-- Begin Sidebar -->
+<aside class="sidebar">
+    <div class="sidebox widget">
+        <h3>Published</h3>
+
+        <div class="date"><span class="lite1">{{ page.date }}</span></div>
+
+    </div>
+
+    <div class="sidebox widget">
+        <h3>Categories</h3>
+        <ul class="list">
+            {{# page.categories?to_categories }}
+            {{> categories_list }}
+            {{/ page.categories?to_categories }}
+        </ul>
+    </div>
+
+    <div class="sidebox widget">
+        <h3>Tags</h3>
+        <ul class="list">
+            {{# page.tags?to_tags }}
+            {{> tags_list }}
+            {{/ page.tags?to_tags }}
+        </ul>
+    </div>
+
+    <div class="sidebox widget">
+        <h3>Search</h3>
+
+        <form class="searchform" method="get">
+            <input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''"
+                   onblur="this.value='type and hit enter'"/>
+        </form>
+    </div>
+    <div class="sidebox widget">
+        <h3>Sina Weibo</h3>
+
+        <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1751716711&verifier=6bf885be&colors=d6f3f7,ffffff,616161,CA6666,ffffff&dpc=1"></iframe>
+    </div>
+
+</aside>
+<!-- End Sidebar -->

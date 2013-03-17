@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>About Me</title>
+    <title>gor</title>
     
     <meta name="author" content="RaymondChou">
 
@@ -66,9 +66,9 @@
 
                         
                         
-  <li class="active"><a href="/about" class="active">About Me</a></li>
 
 
+  <li><a href="/about">About Me</a></li>
 
 
                         
@@ -85,17 +85,107 @@
     <!-- Begin Wrapper -->
     <div class="wrapper">
         <div class="inner light">
+            <div class="page-intro clearfix">
+    <h1 class="page-title alignleft">gor 
+    </h1>
+    <div class="navigation alignright">
+        
+        
+        
+
+        
+        <a href="/2012/new-born.html" title="你的第一篇博客"><i class='icon-right-open-1'></i></a>
+        
+        
+    </div>
+</div>
+
+<section class="content full">
+    <div class="post">
+        <div class="post-content">
+            <pre><code>package main
+
+import (
+    &quot;fmt&quot;
+&quot;net/http&quot;
+)
+
+func main() {
+    resp, err := http.Get(&quot;http://mirrors.ustc.edu.cn/opensuse/distribution/12.3/iso/openSUSE-12.3-GNOME-Live-i686.iso&quot;)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(&quot;Resp code&quot;, resp.StatusCode)
+    resp.Body.Close() // 注意,这里并不读取resp.Body, 而resp.Body有大概700mb未读取
+}
+</code></pre>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="comments">
+        
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'ledbk'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </div>
+</section>
+
+<!-- Begin Sidebar -->
+<aside class="sidebar">
+    <div class="sidebox widget">
+        <h3>Published</h3>
+
+        <div class="date"><span class="lite1">2013-03-17</span></div>
+
+    </div>
+
+    <div class="sidebox widget">
+        <h3>Categories</h3>
+        <ul class="list">
             
-<div class="page-header">
-  <h1>About Me </h1>
-</div>
+            <li>
+  <a href="/categories/#default-ref">default <span>1</span></a>
+</li>
+            
+        </ul>
+    </div>
 
-<div class="row">
-  <div class="span12">
-    <p>Hello, how are you?</p>
+    <div class="sidebox widget">
+        <h3>Tags</h3>
+        <ul class="list">
+            
+        </ul>
+    </div>
 
-  </div>
-</div>
+    <div class="sidebox widget">
+        <h3>Search</h3>
+
+        <form class="searchform" method="get">
+            <input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''"
+                   onblur="this.value='type and hit enter'"/>
+        </form>
+    </div>
+    <div class="sidebox widget">
+        <h3>Sina Weibo</h3>
+
+        <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1751716711&verifier=6bf885be&colors=d6f3f7,ffffff,616161,CA6666,ffffff&dpc=1"></iframe>
+    </div>
+
+</aside>
+<!-- End Sidebar -->
 
             <div class="clear"></div>
         </div>

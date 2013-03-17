@@ -3,7 +3,29 @@
   <channel>
     <title>Blog Title</title>
     <link>http://www.ledbk.com</link>
-    <pubDate>2013-03-17 01:57:44 +0800</pubDate>
+    <pubDate>2013-03-17 06:24:08 +0800</pubDate>
+    <item>
+      <title>gor</title>
+      <link>http://www.ledbk.com/default/gor/</link>
+      <pubDate>2013-03-17 12:00:00 +0800</pubDate>
+      <description>&lt;pre&gt;&lt;code&gt;package main
+
+import (
+    &amp;quot;fmt&amp;quot;
+&amp;quot;net/http&amp;quot;
+)
+
+func main() {
+    resp, err := http.Get(&amp;quot;http://mirrors.ustc.edu.cn/opensuse/distribution/12.3/iso/openSUSE-12.3-GNOME-Live-i686.iso&amp;quot;)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(&amp;quot;Resp code&amp;quot;, resp.StatusCode)
+    resp.Body.Close() // 注意,这里并不读取resp.Body, 而resp.Body有大概700mb未读取
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     <item>
       <title>你的第一篇博客</title>
       <link>http://www.ledbk.com/2012/new-born.html</link>
