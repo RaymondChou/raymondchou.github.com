@@ -3,90 +3,261 @@
   <channel>
     <title>Blog Title</title>
     <link>http://www.ledbk.com</link>
-    <pubDate>2013-03-17 06:24:08 +0800</pubDate>
+    <pubDate>2013-03-17 10:06:09 +0800</pubDate>
     <item>
-      <title>gor</title>
-      <link>http://www.ledbk.com/default/gor/</link>
+      <title>Blog迁移至Golang</title>
+      <link>http://www.ledbk.com/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/</link>
       <pubDate>2013-03-17 12:00:00 +0800</pubDate>
-      <description>&lt;pre&gt;&lt;code&gt;package main
-
-import (
-    &amp;quot;fmt&amp;quot;
-&amp;quot;net/http&amp;quot;
-)
-
-func main() {
-    resp, err := http.Get(&amp;quot;http://mirrors.ustc.edu.cn/opensuse/distribution/12.3/iso/openSUSE-12.3-GNOME-Live-i686.iso&amp;quot;)
-    if err != nil {
-        panic(err)
-    }
-    fmt.Println(&amp;quot;Resp code&amp;quot;, resp.StatusCode)
-    resp.Body.Close() // 注意,这里并不读取resp.Body, 而resp.Body有大概700mb未读取
-}
-&lt;/code&gt;&lt;/pre&gt;
+      <description>&lt;p&gt;之前用的wordpress不尽如人意,停了blog很久了也一直没空搞这个,现在重拾起来.最近比较着迷Golang于是用Gor搭建了一个blog,花了一个下午写了下css,先跑起来后面慢慢优化&lt;/p&gt;
 </description>
     </item>
     <item>
-      <title>你的第一篇博客</title>
-      <link>http://www.ledbk.com/2012/new-born.html</link>
-      <pubDate>2012-12-22 12:00:00 +0800</pubDate>
-      <description>&lt;h1&gt;感谢你使用Gor编写博客&lt;/h1&gt;
+      <title>Git Submodule</title>
+      <link>http://www.ledbk.com/git/Git-Submodule/</link>
+      <pubDate>2013-03-17 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;经常有这样的事情，当你在一个项目上工作时，你需要在其中使用另外一个项目。也许它是一个第三方开发的库或者是你独立开发和并在多个父项目中使用的。这个场景下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。&lt;/p&gt;
 
-&lt;h2&gt;本文位于 posts/first-blog.md , 你可以任何删掉,修改这个文件&lt;/h2&gt;
+&lt;p&gt;这里有一个例子。假设你在开发一个网站，为之创建Atom源。你不想编写一个自己的Atom生成代码，而是决定使用一个库。你可能不得不像CPAN install或者Ruby gem一样包含来自共享库的代码，或者将代码拷贝到你的项目树中。如果采用包含库的办法，那么不管用什么办法都很难去定制这个库，部署它就更加困难了，因为你必须确保每个客户都拥有那个库。把代码包含到你自己的项目中带来的问题是，当上游被修改时，任何你进行的定制化的修改都很难归并。&lt;/p&gt;
 
-&lt;p&gt;文件开头是当前文章的元数据&lt;/p&gt;
+&lt;p&gt;Git 通过子模块处理这个问题。子模块允许你将一个 Git 仓库当作另外一个Git仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;date为自动生成, 当然,你可以修改,这是你的自由&lt;/li&gt;
-&lt;li&gt;permalink 可以是固定地址,也可以由gor为你自动生成&lt;/li&gt;
-&lt;li&gt;categories 就是分类, 可以多个&lt;/li&gt;
-&lt;li&gt;tags 同理,多个标签也是很常见的&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;假设你想把 Rack 库（一个 Ruby 的 web 服务器网关接口）加入到你的项目中，可能既要保持你自己的变更，又要延续上游的变更。首先你要把外部的仓库克隆到你的子目录中。你通过git submodule add将外部项目加为子模块：&lt;/p&gt;
 
-&lt;p&gt;请确保文件使用UTF8 without BOM编码&lt;/p&gt;
-
-&lt;h2&gt;你可以通过执行下面的语句来新建一篇博客:&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;gor post 文章标题
+&lt;pre&gt;&lt;code&gt;$ git submodule add git://github.com/chneukirchen/rack.git rack
+Initialized empty Git repository in /opt/subtest/rack/.git/
+remote: Counting objects: 3181, done.
+remote: Compressing objects: 100% (1534/1534), done.
+remote: Total 3181 (delta 1951), reused 2623 (delta 1603)
+Receiving objects: 100% (3181/3181), 675.42 KiB | 422 KiB/s, done.
+Resolving deltas: 100% (1951/1951), done.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;编译你的博客,并预览之&lt;/h2&gt;
+&lt;p&gt;现在你就在项目里的rack子目录下有了一个 Rack 项目。你可以进入那个子目录，进行变更，加入你自己的远程可写仓库来推送你的变更，从原始仓库拉取和归并等等。如果你在加入子模块后立刻运行git status，你会看到下面两项：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;gor compile #编译
-gor http
+&lt;pre&gt;&lt;code&gt;$ git status
+On branch master
+Changes to be committed:
+(use &amp;quot;git reset HEAD &amp;lt;file&amp;gt;...&amp;quot; to unstage)
+new file: .gitmodules
+new file: rack
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;然后打开你的浏览器,访问 &lt;a href=&#34;http://127.0.0.1:8080&#34;&gt;http://127.0.0.1:8080&lt;/a&gt; 来预览&lt;/p&gt;
+&lt;p&gt;首先你注意到有一个.gitmodules文件。这是一个配置文件，保存了项目 URL 和你拉取到的本地子目录&lt;/p&gt;
 
-&lt;h2&gt;你将使用Markdown来编写博客&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wowubuntu.com/markdown/&#34;&gt;Markdown 语法中文版&lt;/a&gt; 能让你快速入门其语法&lt;/p&gt;
-
-&lt;p&gt;相信&lt;a href=&#34;http://markdownpad.com&#34;&gt;MarkdownPad&lt;/a&gt;或&lt;a href=&#34;http://code.google.com/p/liteide/&#34;&gt;liteide&lt;/a&gt;会是你的编写博客的好帮手&lt;/p&gt;
-
-&lt;h2&gt;如果你打算部署到github的pages上&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;申请github帐户&lt;/li&gt;
-&lt;li&gt;新建一个库 username.github.com 即你的用户名命名的地址&lt;/li&gt;
-&lt;li&gt;将compiled目录,作为根路径,提交上去github.com上&lt;/li&gt;
-&lt;li&gt;稍等几分钟, 你即可通过 &lt;a href=&#34;http://username.github.com&#34;&gt;http://username.github.com&lt;/a&gt; 访问到&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;附上git教程 &lt;a href=&#34;http://gitbook.liuhui998.com/&#34;&gt;GitBook中文版&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;一般来说,你只需要几个简单的git命令就足以应付大部分需求(仅示例)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone git://github.com/wendal/wendal.net.git
-git add -A
-git commit -m &amp;quot;...&amp;quot;
-git pull
-git push
+&lt;pre&gt;&lt;code&gt;$ cat .gitmodules 
+[submodule &amp;quot;rack&amp;quot;]
+path = rack
+url = git://github.com/chneukirchen/rack.git
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;用gor编写博客将会是一件很开心的事,如果有任何意见或建议,欢迎到 &lt;a href=&#34;http://github.com/wendal/gor&#34;&gt;gor的官网&lt;/a&gt; 提交issue&lt;/h2&gt;
+&lt;p&gt;如果你有多个子模块，这个文件里会有多个条目。很重要的一点是这个文件跟其他文件一样也是处于版本控制之下的，就像你的.gitignore文件一样。它跟项目里的其他文件一样可以被推送和拉取。这是其他克隆此项目的人获知子模块项目来源的途径。&lt;/p&gt;
 
-&lt;h1&gt;祝你使用愉快&lt;/h1&gt;
+&lt;p&gt;git status的输出里所列的另一项目是 rack 。如果你运行在那上面运行git diff，会发现一些有趣的东西：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git diff --cached rack
+diff --git a/rack b/rack
+new file mode 160000
+index 0000000..08d709f
+--- /dev/null
++++ b/rack
+@@ -0,0 +1 @@
++Subproject commit 08d709f78b8c5b0fbeb7821e37fa53e69afcf433
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;尽管rack是你工作目录里的子目录，但 Git 把它视作一个子模块，当你不在那个目录里时并不记录它的内容。取而代之的是，Git 将它记录成来自那个仓库的一个特殊的提交。当你在那个子目录里修改并提交时，子项目会通知那里的 HEAD 已经发生变更并记录你当前正在工作的那个提交；通过那样的方法，当其他人克隆此项目，他们可以重新创建一致的环境。&lt;/p&gt;
+
+&lt;p&gt;这是关于子模块的重要一点：你记录他们当前确切所处的提交。你不能记录一个子模块的master或者其他的符号引用。&lt;/p&gt;
+
+&lt;p&gt;当你提交时，会看到类似下面的：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git commit -m &#39;first commit with submodule rack&#39;
+[master 0550271] first commit with submodule rack
+2 files changed, 4 insertions(+), 0 deletions(-)
+create mode 100644 .gitmodules
+create mode 160000 rack
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意 rack 条目的 160000 模式。这在Git中是一个特殊模式，基本意思是你将一个提交记录为一个目录项而不是子目录或者文件。&lt;/p&gt;
+
+&lt;p&gt;你可以将rack目录当作一个独立的项目，保持一个指向子目录的最新提交的指针然后反复地更新上层项目。所有的Git命令都在两个子目录里独立工作：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git log -1
+commit 0550271328a0038865aad6331e620cd7238601bb
+Author: xxx &amp;lt;xxx@gmail.com&amp;gt;
+Date: Thu Apr 9 09:03:56 2009 -0700
+first commit with submodule rack
+$ cd rack/
+$ git log -1
+commit 08d709f78b8c5b0fbeb7821e37fa53e69afcf433
+Author: xxxx &amp;lt;xxxx@gmail.com&amp;gt;
+Date: Wed Mar 25 14:49:04 2009 +0100
+Document version change
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;克隆一个带子模块的项目&lt;/p&gt;
+
+&lt;p&gt;这里你将克隆一个带子模块的项目。当你接收到这样一个项目，你将得到了包含子项目的目录，但里面没有文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone git://github.com/xxx/myproject.git
+Initialized empty Git repository in /opt/myproject/.git/
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (6/6), done.
+    $ cd myproject
+$ ls -l
+total 8
+-rw-r--r-- 1 schacon admin 3 Apr 9 09:11 README
+drwxr-xr-x 2 schacon admin 68 Apr 9 09:11 rack
+$ ls rack/
+$rack
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;目录存在了，但是是空的。你必须运行两个命令：git submodule init来初始化你的本地配置文件，git submodule update来从那个项目拉取所有数据并检出你上层项目里所列的合适的提交：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git submodule init
+Submodule &#39;rack&#39; (git://github.com/xxx/rack.git) registered for path &#39;rack&#39;
+$ git submodule update
+Initialized empty Git repository in /opt/myproject/rack/.git/
+remote: Counting objects: 3181, done.
+remote: Compressing objects: 100% (1534/1534), done.
+remote: Total 3181 (delta 1951), reused 2623 (delta 1603)
+Receiving objects: 100% (3181/3181), 675.42 KiB | 173 KiB/s, done.
+Resolving deltas: 100% (1951/1951), done.
+Submodule path &#39;rack&#39;: checked out &#39;08d709f78b8c5b0fbeb7821e37fa53e69afcf433&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在你的rack子目录就处于你先前提交的确切状态了。如果另外一个开发者变更了 rack 的代码并提交，你拉取那个引用然后归并之，将得到稍有点怪异的东西：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git merge origin/master
+Updating 0550271..85a3eee
+Fast forward
+rack | 2 +-
+1 files changed, 1 insertions(+), 1 deletions(-)
+[master*]$ git status
+On branch master
+Changed but not updated:
+(use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)
+(use &amp;quot;git checkout -- &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)
+modified: rack
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你归并来的仅仅上是一个指向你的子模块的指针；但是它并不更新你子模块目录里的代码，所以看起来你的工作目录处于一个临时状态：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git diff
+diff --git a/rack b/rack
+index 6c5e70b..08d709f 160000
+--- a/rack
++++ b/rack
+@@ -1 +1 @@
+-Subproject commit 6c5e70b984a60b3cecd395edd5b48a7575bf58e0
++Subproject commit 08d709f78b8c5b0fbeb7821e37fa53e69afcf433
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;事情就是这样，因为你所拥有的子模块的指针并对应于子模块目录的真实状态。为了修复这一点，你必须再次运行git submodule update：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git submodule update
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 2 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From git@github.com:schacon/rack
+08d709f..6c5e70b master -&amp;gt; origin/master
+Submodule path &#39;rack&#39;: checked out &#39;6c5e70b984a60b3cecd395edd5b48a7575bf58e0&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;每次你从主项目中拉取一个子模块的变更都必须这样做。看起来很怪但是管用。&lt;/p&gt;
+
+&lt;p&gt;一个常见问题是当开发者对子模块做了一个本地的变更但是并没有推送到公共服务器。然后他们提交了一个指向那个非公开状态的指针然后推送上层项目。当其他开发者试图运行git submodule update，那个子模块系统会找不到所引用的提交，因为它只存在于第一个开发者的系统中。如果发生那种情况，你会看到类似这样的错误：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git submodule update
+fatal: reference isn’t a tree: 6c5e70b984a60b3cecd395edd5b48a7575bf58e0
+Unable to checkout &#39;6c5e70b984a60b3cecd395edd5ba7575bf58e0&#39; in submodule path &#39;rack&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你不得不去查看谁最后变更了子模块&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git log -1 rack
+commit 85a3eee996800fcfa91e2119372dd4172bf76678
+Author: Scott Chacon &amp;lt;schacon@gmail.com&amp;gt;
+Date: Thu Apr 9 09:19:14 2009 -0700
+added a submodule reference I will never make public. hahahahaha!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后，你给那个家伙发电子邮件说他一通。&lt;/p&gt;
+
+&lt;p&gt;上层项目&lt;/p&gt;
+
+&lt;p&gt;有时候，开发者想按照他们的分组获取一个大项目的子目录的子集。如果你是从 CVS 或者 Subversion 迁移过来的话这个很常见，在那些系统中你已经定义了一个模块或者子目录的集合，而你想延续这种类型的工作流程。&lt;/p&gt;
+
+&lt;p&gt;在 Git 中实现这个的一个好办法是你将每一个子目录都做成独立的 Git 仓库，然后创建一个上层项目的 Git 仓库包含多个子模块。这个办法的一个优势是你可以在上层项目中通过标签和分支更为明确地定义项目之间的关系。&lt;/p&gt;
+
+&lt;p&gt;子模块的问题&lt;/p&gt;
+
+&lt;p&gt;使用子模块并非没有任何缺点。首先，你在子模块目录中工作时必须相对小心。当你运行git submodule update，它会检出项目的指定版本，但是不在分支内。这叫做获得一个分离的头——这意味着 HEAD 文件直接指向一次提交，而不是一个符号引用。问题在于你通常并不想在一个分离的头的环境下工作，因为太容易丢失变更了。如果你先执行了一次submodule update，然后在那个子模块目录里不创建分支就进行提交，然后再次从上层项目里运行git submodule update同时不进行提交，Git会毫无提示地覆盖你的变更。技术上讲你不会丢失工作，但是你将失去指向它的分支，因此会很难取到。&lt;/p&gt;
+
+&lt;p&gt;为了避免这个问题，当你在子模块目录里工作时应使用git checkout -b work创建一个分支。当你再次在子模块里更新的时候，它仍然会覆盖你的工作，但是至少你拥有一个可以回溯的指针。&lt;/p&gt;
+
+&lt;p&gt;切换带有子模块的分支同样也很有技巧。如果你创建一个新的分支，增加了一个子模块，然后切换回不带该子模块的分支，你仍然会拥有一个未被追踪的子模块的目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git checkout -b rack
+Switched to a new branch &amp;quot;rack&amp;quot;
+$ git submodule add git@github.com:schacon/rack.git rack
+    Initialized empty Git repository in /opt/myproj/rack/.git/
+...
+Receiving objects: 100% (3184/3184), 677.42 KiB | 34 KiB/s, done.
+Resolving deltas: 100% (1952/1952), done.
+$ git commit -am &#39;added rack submodule&#39;
+[rack cc49a69] added rack submodule
+2 files changed, 4 insertions(+), 0 deletions(-)
+create mode 100644 .gitmodules
+create mode 160000 rack
+$ git checkout master
+Switched to branch &amp;quot;master&amp;quot;
+$ git status
+On branch master
+Untracked files:
+(use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)
+rack/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你将不得不将它移走或者删除，这样的话当你切换回去的时候必须重新克隆它——你可能会丢失你未推送的本地的变更或分支。&lt;/p&gt;
+
+&lt;p&gt;最后一个需要引起注意的是关于从子目录切换到子模块的。如果你已经跟踪了你项目中的一些文件但是想把它们移到子模块去，你必须非常小心，否则Git会生你的气。假设你的项目中有一个子目录里放了 rack 的文件，然后你想将它转换为子模块。如果你删除子目录然后运行submodule add，Git会向你大吼：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rm -Rf rack/
+$ git submodule add git@github.com:xxx/rack.git rack
+&#39;rack&#39; already exists in the index
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你必须先将rack目录撤回。然后你才能加入子模块：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git rm -r rack
+$ git submodule add git@github.com:schacon/rack.git rack
+Initialized empty Git repository in /opt/testsub/rack/.git/
+remote: Counting objects: 3184, done.
+remote: Compressing objects: 100% (1465/1465), done.
+remote: Total 3184 (delta 1952), reused 2770 (delta 1675)
+Receiving objects: 100% (3184/3184), 677.42 KiB | 88 KiB/s, done.
+Resolving deltas: 100% (1952/1952), done.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在假设你在一个分支里那样做了。如果你尝试切换回一个仍然在目录里保留那些文件而不是子模块的分支时——你会得到下面的错误：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git checkout master
+error: Untracked working tree file &#39;rack/AUTHORS&#39; would be overwritten by merge.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你必须先移除rack子模块的目录才能切换到不包含它的分支：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mv rack /tmp/
+$ git checkout master
+Switched to branch &amp;quot;master&amp;quot;
+$ ls
+README rack
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后，当你切换回来，你会得到一个空的rack目录。你可以运行git submodule update重新克隆，也可以将/tmp/rack目录重新移回空目录。&lt;/p&gt;
 </description>
     </item>
   </channel>

@@ -4,13 +4,13 @@
 		<loc>http://www.ledbk.com/</loc>
 	</url>
 	<url>
-		<loc>http://www.ledbk.com/default/gor/</loc>
+		<loc>http://www.ledbk.com/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/</loc>
 		<lastmod>2013-03-17</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://www.ledbk.com/2012/new-born.html</loc>
-		<lastmod>2012-12-22</lastmod>
+		<loc>http://www.ledbk.com/git/Git-Submodule/</loc>
+		<lastmod>2013-03-17</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 </urlset>

@@ -36,6 +36,7 @@
                 <!-- Begin Menu -->
                 <nav id="menu" class="menu">
                     <ul id="tiny">
+                        <li><a href="/">Home</a></li>
                         
                         
 
@@ -97,54 +98,40 @@
 
 <div class="post">
     <div class="post-content">
-        <h2><a href="/default/gor/">gor</a></h2>
+        <h2><a href="/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/">Blog迁移至Golang</a></h2>
         <div class="meta"> <span class="date">2013-03-17</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
-        <pre><code>package main
+        <p>之前用的wordpress不尽如人意,停了blog很久了也一直没空搞这个,现在重拾起来.最近比较着迷Golang于是用Gor搭建了一个blog,花了一个下午写了下css,先跑起来后面慢慢优化</p>
 
-import (
-    &quot;fmt&quot;
-&quot;net/http&quot;
-)
-
-func main() {
-    resp, err := http.Get(&quot;http://mirrors.ustc.edu.cn/opensuse/distribution/12.3/iso/openSUSE-12.3-GNOME-Live-i686.iso&quot;)
-    if err != nil {
-        panic(err)
-    }
-    fmt.Println(&quot;Resp code&quot;, resp.StatusCode)
-    resp.Body.Close() // 注意,这里并不读取resp.Body, 而resp.Body有大概700mb未读取
-}
-</code></pre>
-
-        <a href="/default/gor/" class="more">Continue reading →</a> </div>
+        <a href="/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/" class="button red">Continue reading →</a>
+    </div>
     <div class="clear"></div>
 </div>
 
 <div class="post">
     <div class="post-content">
-        <h2><a href="/2012/new-born.html">你的第一篇博客</a></h2>
-        <div class="meta"> <span class="date">2012-12-22</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
-        <h1>感谢你使用Gor编写博客</h1>
+        <h2><a href="/git/Git-Submodule/">Git Submodule</a></h2>
+        <div class="meta"> <span class="date">2013-03-17</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
+        <p>经常有这样的事情，当你在一个项目上工作时，你需要在其中使用另外一个项目。也许它是一个第三方开发的库或者是你独立开发和并在多个父项目中使用的。这个场景下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。</p>
 
-<h2>本文位于 posts/first-blog.md , 你可以任何删掉,修改这个文件</h2>
+<p>这里有一个例子。假设你在开发一个网站，为之创建Atom源。你不想编写一个自己的Atom生成代码，而是决定使用一个库。你可能不得不像CPAN install或者Ruby gem一样包含来自共享库的代码，或者将代码拷贝到你的项目树中。如果采用包含库的办法，那么不管用什么办法都很难去定制这个库，部署它就更加困难了，因为你必须确保每个客户都拥有那个库。把代码包含到你自己的项目中带来的问题是，当上游被修改时，任何你进行的定制化的修改都很难归并。</p>
 
-<p>文件开头是当前文章的元数据</p>
+<p>Git 通过子模块处理这个问题。子模块允许你将一个 Git 仓库当作另外一个Git仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。</p>
 
-<ol>
-<li>date为自动生成, 当然,你可以修改,这是你的自由</li>
-<li>permalink 可以是固定地址,也可以由gor为你自动生成</li>
-<li>categories 就是分类, 可以多个</li>
-<li>tags 同理,多个标签也是很常见的</li>
-</ol>
+<p>假设你想把 Rack 库（一个 Ruby 的 web 服务器网关接口）加入到你的项目中，可能既要保持你自己的变更，又要延续上游的变更。首先你要把外部的仓库克隆到你的子目录中。你通过git submodule add将外部项目加为子模块：</p>
 
-<p>请确保文件使用UTF8 without BOM编码</p>
-
-<h2>你可以通过执行下面的语句来新建一篇博客:</h2>
-
-<pre><code>gor post 文章标题
+<pre><code>$ git submodule add git://github.com/chneukirchen/rack.git rack
+Initialized empty Git repository in /opt/subtest/rack/.git/
+remote: Counting objects: 3181, done.
+remote: Compressing objects: 100% (1534/1534), done.
+remote: Total 3181 (delta 1951), reused 2623 (delta 1603)
+Receiving objects: 100% (3181/3181), 675.42 KiB | 422 KiB/s, done.
+Resolving deltas: 100% (1951/1951), done.
 </code></pre>
 
-        <a href="/2012/new-born.html" class="more">Continue reading →</a> </div>
+<p>现在你就在项目里的rack子目录下有了一个 Rack 项目。你可以进入那个子目录，进行变更，加入你自己的远程可写仓库来推送你的变更，从原始仓库拉取和归并等等。如果你在加入子模块后立刻运行git status，你会看到下面两项：</p>
+
+        <a href="/git/Git-Submodule/" class="button red">Continue reading →</a>
+    </div>
     <div class="clear"></div>
 </div>
 
@@ -152,7 +139,7 @@ func main() {
 
 <!-- Begin Sidebar -->
 <aside class="sidebar">
-    
+
     <div class="sidebox widget">
         <h3>Search</h3>
 
@@ -181,45 +168,32 @@ func main() {
     <footer>
         <!-- Begin Inner -->
         <div class="inner">
-            <div class="one-fourth widget">
-                <h3 class="widget-title">Popular Posts</h3>
+            <div class="one-third widget">
+                <h3 class="widget-title">Links</h3>
                 <ul class="post-list">
                     <li>
-                        <h6><a href="blog-post.html">Vivamus sagittis lacus vel augue metus laoreet rutrum dolor
-                            auctor.</a></h6>
-                        <em>3th Oct 2012</em></li>
+                        <h6><a href="http://laravel-cn.com" target="_blank">Laravel-cn.com</a></h6>
+                    </li>
                     <li>
-                        <h6><a href="blog-post.html">Scelerisque nisl consectetur et.</a></h6>
-                        <em>28th Sep 2012</em></li>
-                    <li>
-                        <h6><a href="blog-post.html">Pellentesque ornare sem lacinia quam venenatis vestibulum.</a></h6>
-                        <em>15th Aug 2012</em></li>
+                        <h6><a href="http://iiseeuu.com" target="_blank">iiseeuu.com</a></h6>
+                    </li>
                 </ul>
             </div>
-            <div class="one-fourth widget">
-                <h3 class="widget-title">Twitter</h3>
 
-                <div id="twitter-wrapper">
-                    <div id="twitter"></div>
-                </div>
+            <div class="one-third widget">
+                <h3 class="widget-title">A Little About Me</h3>
+
+                <p>I'm Laravel China founder / the Go Language followers , also concerned about the Web front-end, server architecture, NoSQL databases and C1000K</p>
+
+                <p></p>
             </div>
-            <div class="one-fourth widget">
-                <h3 class="widget-title">A Little About Us</h3>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi
-                    erat porttitor ligula, eget lacinia odio sem nec elit. Duis mollis, est non commodo luctus, nullam
-                    quis risus eget urna.</p>
-
-                <p>Donec id elit non porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel.</p>
-            </div>
-            <div class="one-fourth last widget">
+            <div class="one-third last widget">
                 <h3 class="widget-title">Get In Touch</h3>
 
-                <p>Fusce dapibus, tellus commodo, tortor mauris condimentum utellus fermentum, porta sem malesuada
-                    magna. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur.</p>
-                <i class="icon-location contact"></i> Moon St. 14/05 Light, Jupiter <br/>
-                <i class="icon-phone contact"></i> 0247 541 65 87 <br/>
-                <i class="icon-mail contact"></i> <a href="mailto:support@wiretree.com">support@wiretree.com</a></div>
+                <p>I worked in IISEEUU Network Technology Co., Ltd.</p>
+                <i class="icon-location contact"></i> Nanjing, China <br/>
+                <i class="icon-phone contact"></i> <a href="http://weibo.com/ledbk" target="_blank">@Raymond_______</a><br/>
+                <i class="icon-mail contact"></i> <a href="mailto:raymond@ledbk.com">raymond@ledbk.com</a></div>
             <div class="clear"></div>
         </div>
         <!-- Begin Inner -->
@@ -231,18 +205,12 @@ func main() {
         <!-- Begin Inner -->
         <div class="inner">
             <p>&copy; RaymondChou 2013
-                with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
-                and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-                and Idea from <a href="http://ruhoh.com" target="_blank"
-                                 title="The Definitive Technical Blogging Framework">ruhoh</a></p>
+                build with <a>Golang</a>
+
             <ul class="social">
-                <li><a href="#"><i class="icon-s-rss"></i></a></li>
-                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                <li><a href="#"><i class="icon-s-flickr"></i></a></li>
-                <li><a href="#"><i class="icon-s-vimeo"></i></a></li>
+                <li><a href="/rss.xml" target="_blank"><i class="icon-s-rss"></i></a></li>
+                <li><a href="https://github.com/RaymondChou" target="_blank"><i class="icon-s-github"></i></a></li>
+                <li><a href="http://instagram.com/freezestart" target="_blank"><i class="icon-s-instagram"></i></a></li>
             </ul>
             <div class="clear"></div>
         </div>
