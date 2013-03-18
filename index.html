@@ -98,11 +98,32 @@
 
 <div class="post">
     <div class="post-content">
-        <h2><a href="/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/">Blog迁移至Golang</a></h2>
-        <div class="meta"> <span class="date">2013-03-17</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
-        <p>之前用的wordpress不尽如人意,停了blog很久了也一直没空搞这个,现在重拾起来.最近比较着迷Golang于是用Gor搭建了一个blog,花了一个下午写了下css,先跑起来后面慢慢优化</p>
+        <h2><a href="/gitlab/gitlab-on-centos/">gitlab on centos</a></h2>
+        <div class="meta"> <span class="date">2013-03-18</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
+        <p>注:阅读前请慎重考虑,这是一场噩梦般的部署过程</p>
 
-        <a href="/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/" class="button red">Continue reading →</a>
+<h3>1.添加EPEL源</h3>
+
+<p>不添加这个，什么依赖都装不了。所以，你懂得。这个是centos 5的，其他版本的可以去网上搜，就地址不一样。</p>
+
+<pre><code>rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-5-4.noarch.rpm
+</code></pre>
+
+<p>注:epel源会经常更新,需要找到最新的</p>
+
+<h3>2.安装依赖</h3>
+
+<p>就是安装依赖，建议python自己编译安装一个，版本新一点。</p>
+
+<pre><code>yum -y groupinstall 'Development Tools' 'Additional Development'
+yum -y install readline readline-devel ncurses-devel gdbm-devel glibc-devel tcl-devel openssl-devel curl-devel expat-devel db4-devel byacc sqlite-devel gcc-c++ libyaml libyaml-devel libffi libffi-devel libxml2 libxml2-devel libxslt libxslt-devel libicu libicu-devel system-config-firewall-tui python-devel redis
+</code></pre>
+
+<h3>3.编译安装ruby</h3>
+
+<p>注意:千万不要用最新版，要用p327版本</p>
+
+        <a href="/gitlab/gitlab-on-centos/" class="button red">Continue reading →</a>
     </div>
     <div class="clear"></div>
 </div>
@@ -131,6 +152,17 @@ Resolving deltas: 100% (1951/1951), done.
 <p>现在你就在项目里的rack子目录下有了一个 Rack 项目。你可以进入那个子目录，进行变更，加入你自己的远程可写仓库来推送你的变更，从原始仓库拉取和归并等等。如果你在加入子模块后立刻运行git status，你会看到下面两项：</p>
 
         <a href="/git/Git-Submodule/" class="button red">Continue reading →</a>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="post">
+    <div class="post-content">
+        <h2><a href="/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/">Blog迁移至Golang</a></h2>
+        <div class="meta"> <span class="date">2013-03-17</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
+        <p>之前用的wordpress不尽如人意,停了blog很久了也一直没空搞这个,现在重拾起来.最近比较着迷Golang于是用Gor搭建了一个blog,花了一个下午写了下css,先跑起来后面慢慢优化</p>
+
+        <a href="/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/" class="button red">Continue reading →</a>
     </div>
     <div class="clear"></div>
 </div>

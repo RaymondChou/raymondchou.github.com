@@ -4,12 +4,17 @@
 		<loc>http://www.ledbk.com/</loc>
 	</url>
 	<url>
-		<loc>http://www.ledbk.com/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/</loc>
-		<lastmod>2013-03-17</lastmod>
+		<loc>http://www.ledbk.com/gitlab/gitlab-on-centos/</loc>
+		<lastmod>2013-03-18</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
 		<loc>http://www.ledbk.com/git/Git-Submodule/</loc>
+		<lastmod>2013-03-17</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>http://www.ledbk.com/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/</loc>
 		<lastmod>2013-03-17</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
