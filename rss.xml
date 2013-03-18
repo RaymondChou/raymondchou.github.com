@@ -3,7 +3,7 @@
   <channel>
     <title>Blog Title</title>
     <link>http://www.ledbk.com</link>
-    <pubDate>2013-03-18 11:38:15 +0800</pubDate>
+    <pubDate>2013-03-18 12:23:52 +0800</pubDate>
     <item>
       <title>gitlab on centos</title>
       <link>http://www.ledbk.com/gitlab/gitlab-on-centos/</link>
@@ -218,6 +218,13 @@ server {
 &lt;h3&gt;8. 完成&lt;/h3&gt;
 
 &lt;p&gt;期间可能会出现各种依赖问题和运行失败,只能靠你自己处理了,噩梦般的过程结束了,享受吧,注意看看git的hook是否正常工作,检查redis等等,post-recieve的问题还是没找到很好的解决办法,后面再来更新此文&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Blog迁移至Golang</title>
+      <link>http://www.ledbk.com/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/</link>
+      <pubDate>2013-03-17 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;之前用的wordpress不尽如人意,停了blog很久了也一直没空搞这个,现在重拾起来.最近比较着迷Golang于是用Gor搭建了一个blog,花了一个下午写了下css,先跑起来后面慢慢优化&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -467,13 +474,6 @@ README rack
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;然后，当你切换回来，你会得到一个空的rack目录。你可以运行git submodule update重新克隆，也可以将/tmp/rack目录重新移回空目录。&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>Blog迁移至Golang</title>
-      <link>http://www.ledbk.com/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/</link>
-      <pubDate>2013-03-17 12:00:00 +0800</pubDate>
-      <description>&lt;p&gt;之前用的wordpress不尽如人意,停了blog很久了也一直没空搞这个,现在重拾起来.最近比较着迷Golang于是用Gor搭建了一个blog,花了一个下午写了下css,先跑起来后面慢慢优化&lt;/p&gt;
 </description>
     </item>
   </channel>
