@@ -4,6 +4,11 @@
 		<loc>http://www.ledbk.com/</loc>
 	</url>
 	<url>
+		<loc>http://www.ledbk.com/ruby/ruby%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8%E7%B1%BB%2F%E6%96%B9%E6%B3%95/</loc>
+		<lastmod>2013-03-29</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://www.ledbk.com/gitlab/gitlab-on-centos/</loc>
 		<lastmod>2013-03-18</lastmod>
 		<changefreq>weekly</changefreq>

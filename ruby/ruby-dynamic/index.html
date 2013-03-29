@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Archive</title>
+    <title>ruby dynamic</title>
+    
+    <meta name="description" content="ruby中字符串动态调用类/方法">
     
     <meta name="author" content="RaymondChou">
 
@@ -39,9 +41,9 @@
                         <li><a href="/">Home</a></li>
                         
                         
-  <li class="active"><a href="/archive" class="active">Archive</a></li>
 
 
+  <li><a href="/archive">Archive</a></li>
 
 
                         
@@ -86,35 +88,115 @@
     <!-- Begin Wrapper -->
     <div class="wrapper">
         <div class="inner light">
+            <div class="page-intro clearfix">
+    <h1 class="page-title alignleft">ruby dynamic 
+    </h1>
+    <div class="navigation alignright">
+        
+        
+        
+
+        
+        <a href="/gitlab/gitlab-on-centos/" title="gitlab on centos"><i class='icon-right-open-1'></i></a>
+        
+        
+    </div>
+</div>
+
+<section class="content full">
+    <div class="post">
+        <div class="post-content">
+            <h4>demo</h4>
+
+<pre><code>class_name = &quot;JiJi&quot;
+
+method_name = &quot;do_get&quot;
+
+class JiJi
+    def do_get
+        puts 'success'
+    end
+end
+
+
+if(Kernel.const_defined?(class_name))
+    classname = Kernel.const_get(class_name)
+    classname.new().send(method_name)
+else
+    p &quot;未找到类&quot;
+end
+</code></pre>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="comments">
+        
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'ledbk'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </div>
+</section>
+
+<!-- Begin Sidebar -->
+<aside class="sidebar">
+    <div class="sidebox widget">
+        <h3>Published</h3>
+
+        <div class="date"><span class="lite1">2013-03-29</span></div>
+
+    </div>
+
+    <div class="sidebox widget">
+        <h3>Categories</h3>
+        <ul class="list">
             
-<div class="page-header">
-  <h1>Archive </h1>
-</div>
+            <li>
+  <a href="/categories/#ruby-ref">ruby <span>1</span></a>
+</li>
+            
+        </ul>
+    </div>
 
-<div class="row">
-  <div class="span12">
-    <div class="archive">
-<hr>
+    <div class="sidebox widget">
+        <h3>Tags</h3>
+        <ul class="list">
+            
+            <li>
+  <a href="/tags/#ruby-ref">ruby <span>1</span></a>
+</li>
+            
+        </ul>
+    </div>
 
-  <h2>2013</h2>
+    <div class="sidebox widget">
+        <h3>Search</h3>
 
-  <h3>March</h3>
-  <ul>
-  
-    <li><span>2013-03-29</span> &raquo; <a href="/ruby/ruby%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8%E7%B1%BB%2F%E6%96%B9%E6%B3%95/">ruby中字符串动态调用类/方法</a></li>
-  
-    <li><span>2013-03-18</span> &raquo; <a href="/gitlab/gitlab-on-centos/">gitlab on centos</a></li>
-  
-    <li><span>2013-03-17</span> &raquo; <a href="/git/Git-Submodule/">Git Submodule</a></li>
-  
-    <li><span>2013-03-17</span> &raquo; <a href="/Golang/Blog%E8%BF%81%E7%A7%BB%E8%87%B3Golang/">Blog迁移至Golang</a></li>
-  
-  </ul>
+        <form class="searchform" method="get">
+            <input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''"
+                   onblur="this.value='type and hit enter'"/>
+        </form>
+    </div>
+    <div class="sidebox widget">
+        <h3>Sina Weibo</h3>
 
+        <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1751716711&verifier=6bf885be&colors=d6f3f7,ffffff,616161,CA6666,ffffff&dpc=1"></iframe>
+    </div>
 
-</div>
-  </div>
-</div>
+</aside>
+<!-- End Sidebar -->
 
             <div class="clear"></div>
         </div>

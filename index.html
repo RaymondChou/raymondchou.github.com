@@ -98,6 +98,36 @@
 
 <div class="post">
     <div class="post-content">
+        <h2><a href="/ruby/ruby%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8%E7%B1%BB%2F%E6%96%B9%E6%B3%95/">ruby中字符串动态调用类/方法</a></h2>
+        <div class="meta"> <span class="date">2013-03-29</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
+        <h4>demo</h4>
+
+<pre><code>class_name = &quot;JiJi&quot;
+
+method_name = &quot;do_get&quot;
+
+class JiJi
+    def do_get
+        puts 'success'
+    end
+end
+
+
+if(Kernel.const_defined?(class_name))
+    classname = Kernel.const_get(class_name)
+    classname.new().send(method_name)
+else
+    p &quot;未找到类&quot;
+end
+</code></pre>
+
+        <a href="/ruby/ruby%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8%E7%B1%BB%2F%E6%96%B9%E6%B3%95/" class="button red">Continue reading →</a>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="post">
+    <div class="post-content">
         <h2><a href="/gitlab/gitlab-on-centos/">gitlab on centos</a></h2>
         <div class="meta"> <span class="date">2013-03-18</span> <span class="tags"><a href="#">tips</a>, <a href="#">tricks</a></span> <span class="comments"><a href="#">3 Comments</a></span> </div>
         <p>注:阅读前请慎重考虑,这是一场噩梦般的部署过程</p>
